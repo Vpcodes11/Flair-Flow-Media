@@ -5,8 +5,7 @@
 - Set `SESSION_SECRET` to a long random string.
 - Set `ADMIN_USER` and `ADMIN_PASS_HASH` (use `node scripts/hash-password.js "your-pass"`).
 - Configure database:
-  - Use `DATABASE_URL` for Postgres.
-  - Leave `DATABASE_URL` empty to use local SQLite.
+  - Use `DATABASE_URL` for Postgres (required on Vercel/serverless).
 - Configure email:
   - `EMAIL_PROVIDER=smtp` with SMTP credentials, or
   - `EMAIL_PROVIDER=sendgrid` with `SENDGRID_API_KEY`.
@@ -16,6 +15,11 @@
 - Configure analytics + error tracking:
   - Plausible: update `data-domain` in `index.html` and `admin.html`.
   - Sentry: set `SENTRY_DSN` and replace `YOUR_SENTRY_DSN` in both HTML files.
+
+6) Vercel notes
+- Deploy as a static site with Serverless Functions in `/api`.
+- Set the framework to "Other" (not Express).
+- `vercel.json` already routes `/api/*` to functions and everything else to `index.html`.
 
 2) Database
 - For Postgres, ensure the database is reachable via `DATABASE_URL`.

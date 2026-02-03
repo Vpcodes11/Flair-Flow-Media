@@ -37,4 +37,4 @@ Key variables (see `.env.example`):
 - `SENTRY_DSN`
 
 ## Deployment
-See `DEPLOY.md` for production guidance.
+See `DEPLOY.md` for production guidance. On Vercel, use the serverless API routes in `/api` and set the framework to "Other".
