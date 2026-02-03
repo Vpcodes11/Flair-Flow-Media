@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Flair Flow Media — Admin</title>
+    <link rel="stylesheet" href="./admin.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      defer
+      data-domain="flairflow.media"
+      src="https://plausible.io/js/script.js"
+    ></script>
+  </head>
+  <body>
+    <main class="wrap">
+      <header>
+        <h1>Leads Dashboard</h1>
+        <p>Enter the admin token to view and export submissions.</p>
+      </header>
+
+      <section class="panel">
+        <form id="login-form">
+          <input type="text" name="username" placeholder="Username" required />
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            required
+          />
+          <button type="submit">Sign in</button>
+        </form>
+        <div class="actions">
+          <button id="refresh" disabled>Refresh</button>
+          <a id="export" class="ghost disabled" href="#">Export CSV</a>
+          <button id="logout" class="ghost" type="button" disabled>Log out</button>
+        </div>
+      </section>
+
+      <section class="table">
+        <div class="row head">
+          <span>ID</span>
+          <span>Name</span>
+          <span>Email</span>
+          <span>Date</span>
+        </div>
+        <div id="rows"></div>
+      </section>
+    </main>
+
+    <script type="module" src="./admin.js"></script>
+    <script
+      src="https://browser.sentry-cdn.com/8.27.0/bundle.tracing.min.js"
+      integrity="sha384-3G2S4tmyI8v1nBv3oD3yqQH3Qf+4aVQjQ6bVxQIgWue9G6B0f8gI+1eC3i5a2xLr"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      if (window.Sentry) {
+        window.Sentry.init({
+          dsn: "YOUR_SENTRY_DSN",
+          tracesSampleRate: 0.1,
+        });
+      }
+    </script>
+  </body>
+</html>

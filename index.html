@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Flair Flow Media — Social Media Agency</title>
+    <meta
+      name="description"
+      content="Flair Flow Media is a social media agency building bold brands, viral content, and measurable growth."
+    />
+
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      defer
+      data-domain="flairflow.media"
+      src="https://plausible.io/js/script.js"
+    ></script>
+  </head>
+
+  <body>
+    <div class="loader" id="loader" aria-live="polite">
+      <div class="loader__bg">
+        <span class="loader__orb orb--one"></span>
+        <span class="loader__orb orb--two"></span>
+        <span class="loader__orb orb--three"></span>
+        <span class="loader__grid"></span>
+      </div>
+      <div class="loader__content">
+        <div class="loader__mark">
+          <span>Flair</span>
+          <span>Flow</span>
+        </div>
+        <p class="loader__tag">Social + Creator + Performance</p>
+        <div class="loader__bar">
+          <span></span>
+        </div>
+        <div class="loader__meta">
+          <span>Initializing experience</span>
+          <span class="loader__percent">0%</span>
+        </div>
+      </div>
+    </div>
+    <div class="ambient">
+      <span class="orb orb--one"></span>
+      <span class="orb orb--two"></span>
+      <span class="orb orb--three"></span>
+      <span class="grid glow"></span>
+    </div>
+
+    <header class="nav">
+      <a class="logo" href="#top" aria-label="Flair Flow Media home">
+        <span>Flair</span><span>Flow</span>
+      </a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#services">Services</a>
+        <a href="#work">Work</a>
+        <a href="#process">Process</a>
+        <a href="#insights">Insights</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="nav__toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+      </button>
+      <a class="nav__cta" href="#contact">Book a Sprint</a>
+    </header>
+
+    <main id="top">
+      <section class="hero section">
+        <div class="hero__content">
+          <p class="eyebrow">Social Media Agency</p>
+          <h1 class="headline">
+            Make your brand
+            <span>impossible to ignore.</span>
+          </h1>
+          <p class="lead">
+            Flair Flow Media builds narrative-driven social campaigns, creator partnerships,
+            and content systems that turn attention into revenue.
+          </p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#contact">Start a Project</a>
+            <a class="btn btn--ghost" href="#work">View Case Studies</a>
+          </div>
+          <div class="hero__stats" data-parallax="0.12">
+            <div class="stat-card">
+              <div class="mini-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M4 12l4 4 8-8" fill="none" stroke="currentColor" stroke-width="2" />
+                </svg>
+              </div>
+              <h3 data-count="420">0</h3>
+              <p>Campaigns shipped</p>
+            </div>
+            <div class="stat-card">
+              <div class="mini-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M4 20V8l6 6 6-10 4 4v12" fill="none" stroke="currentColor" stroke-width="2" />
+                </svg>
+              </div>
+              <h3 data-count="3.6">0</h3>
+              <p>Average ROAS</p>
+            </div>
+            <div class="stat-card">
+              <div class="mini-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2" />
+                  <path d="M12 3v18M3 12h18" fill="none" stroke="currentColor" stroke-width="2" />
+                </svg>
+              </div>
+              <h3 data-count="28">0</h3>
+              <p>Markets activated</p>
+            </div>
+          </div>
+        </div>
+        <div class="hero__visual" data-parallax="0.18">
+          <div class="card reveal">
+            <p class="label">Live Sprint</p>
+            <h4>Drop 08</h4>
+            <p class="muted">Creators + Performance Ads</p>
+            <div class="bar">
+              <span style="width: 78%"></span>
+            </div>
+          </div>
+          <div class="card reveal delay-1 tilt">
+            <p class="label">Trend Pulse</p>
+            <h4>#GlowForIt</h4>
+            <p class="muted">+186% engagement</p>
+            <div class="sparkline"></div>
+          </div>
+          <div class="card highlight reveal delay-2 tilt">
+            <p class="label">Creator Stack</p>
+            <h4>32 creators</h4>
+            <p class="muted">Micro + Macro mix</p>
+            <button class="chip">Live brief</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="logos section">
+        <p>Trusted by bold teams and fast-growth brands</p>
+        <div class="logo__row">
+          <span>Solstice</span>
+          <span>Northwind</span>
+          <span>Vanta</span>
+          <span>Lumen</span>
+          <span>Oria</span>
+        </div>
+        <div class="platforms">
+          <div class="circle-card">
+            <svg viewBox="0 0 120 120" class="circle-chart" aria-hidden="true">
+              <circle class="circle-bg" cx="60" cy="60" r="48" />
+              <circle class="circle-fg" cx="60" cy="60" r="48" style="--value: 86;" />
+            </svg>
+            <div class="circle-label">
+              <strong>86%</strong>
+              <span>Instagram</span>
+            </div>
+          </div>
+          <div class="circle-card">
+            <svg viewBox="0 0 120 120" class="circle-chart" aria-hidden="true">
+              <circle class="circle-bg" cx="60" cy="60" r="48" />
+              <circle class="circle-fg" cx="60" cy="60" r="48" style="--value: 72;" />
+            </svg>
+            <div class="circle-label">
+              <strong>72%</strong>
+              <span>YouTube</span>
+            </div>
+          </div>
+          <div class="circle-card">
+            <svg viewBox="0 0 120 120" class="circle-chart" aria-hidden="true">
+              <circle class="circle-bg" cx="60" cy="60" r="48" />
+              <circle class="circle-fg" cx="60" cy="60" r="48" style="--value: 64;" />
+            </svg>
+            <div class="circle-label">
+              <strong>64%</strong>
+              <span>TikTok</span>
+            </div>
+          </div>
+          <div class="circle-card">
+            <svg viewBox="0 0 120 120" class="circle-chart" aria-hidden="true">
+              <circle class="circle-bg" cx="60" cy="60" r="48" />
+              <circle class="circle-fg" cx="60" cy="60" r="48" style="--value: 58;" />
+            </svg>
+            <div class="circle-label">
+              <strong>58%</strong>
+              <span>LinkedIn</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="services" class="section" data-scroll="fade-up">
+        <div class="section__header">
+          <h2>Services designed for momentum.</h2>
+          <p>
+            From strategy to execution, we build end-to-end social ecosystems that scale.
+          </p>
+        </div>
+        <div class="grid__services">
+          <article class="service reveal fade-left tilt">
+            <div class="service__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 6h16M4 12h10M4 18h14" fill="none" stroke="currentColor" stroke-width="2" />
+              </svg>
+            </div>
+            <h3>Content Systems</h3>
+            <p>Monthly content pods, editorial direction, and short-form production.</p>
+          </article>
+          <article class="service reveal zoom delay-1 tilt">
+            <div class="service__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="8" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="2" />
+                <circle cx="16" cy="16" r="3" fill="none" stroke="currentColor" stroke-width="2" />
+                <path d="M10 10l4 4" fill="none" stroke="currentColor" stroke-width="2" />
+              </svg>
+            </div>
+            <h3>Creator Partnerships</h3>
+            <p>Curated creators, performance-based collaborations, and influencer ops.</p>
+          </article>
+          <article class="service reveal fade-left delay-2 tilt">
+            <div class="service__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 19l4-8 4 4 6-10" fill="none" stroke="currentColor" stroke-width="2" />
+                <circle cx="5" cy="19" r="2" fill="currentColor" />
+              </svg>
+            </div>
+            <h3>Paid Social</h3>
+            <p>Always-on testing, conversion creatives, and rapid iteration cycles.</p>
+          </article>
+          <article class="service reveal zoom delay-3 tilt">
+            <div class="service__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 12h16M12 4v16" fill="none" stroke="currentColor" stroke-width="2" />
+              </svg>
+            </div>
+            <h3>Community</h3>
+            <p>Social listening, engagement playbooks, and brand voice development.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="work" class="section featured" data-scroll="drift">
+        <div class="section__header">
+          <h2>Work that moves culture and metrics.</h2>
+          <p>Recent campaigns with multi-channel lift and viral reach.</p>
+        </div>
+        <div class="grid__work">
+          <article class="work-card reveal tilt">
+            <div class="badge">Beauty</div>
+            <h3>Vanta Wellness</h3>
+            <p>Repositioned a supplement brand into a creator-led wellness ritual.</p>
+            <span>+214% sales lift</span>
+          </article>
+          <article class="work-card reveal delay-1 tilt">
+            <div class="badge">Travel</div>
+            <h3>Northwind Travel</h3>
+            <p>Story-led content series driving 4.2M organic views in 6 weeks.</p>
+            <span>6.4x ROI</span>
+          </article>
+          <article class="work-card reveal delay-2 tilt">
+            <div class="badge">Studio</div>
+            <h3>Oria Studios</h3>
+            <p>Launched an immersive campaign with real-time social commerce.</p>
+            <span>18K waitlist signups</span>
+          </article>
+        </div>
+      </section>
+
+      <section id="process" class="section" data-scroll="tilt">
+        <div class="section__header">
+          <h2>Our 4-step flow.</h2>
+          <p>We build clarity, create with intention, and ship at speed.</p>
+        </div>
+        <div class="timeline">
+          <div class="step reveal fade-left">
+            <div class="step__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 12h14M12 5v14" fill="none" stroke="currentColor" stroke-width="2" />
+              </svg>
+            </div>
+            <span>01</span>
+            <h3>Discover</h3>
+            <p>Audience mapping, social audit, and creative strategy.</p>
+          </div>
+          <div class="step reveal delay-1 zoom">
+            <div class="step__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="5" y="5" width="14" height="14" rx="4" fill="none" stroke="currentColor" stroke-width="2" />
+                <path d="M9 9h6v6H9z" fill="currentColor" />
+              </svg>
+            </div>
+            <span>02</span>
+            <h3>Design</h3>
+            <p>Campaign architecture, creator roster, and content plan.</p>
+          </div>
+          <div class="step reveal delay-2 fade-left">
+            <div class="step__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 12l6 6 10-12" fill="none" stroke="currentColor" stroke-width="2" />
+              </svg>
+            </div>
+            <span>03</span>
+            <h3>Launch</h3>
+            <p>Production, publishing, and paid amplification.</p>
+          </div>
+          <div class="step reveal delay-3 zoom">
+            <div class="step__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 4v16M4 12h16" fill="none" stroke="currentColor" stroke-width="2" />
+              </svg>
+            </div>
+            <span>04</span>
+            <h3>Optimize</h3>
+            <p>Performance insights, iteration, and growth loops.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="insights" class="section insights" data-scroll="fade-up">
+        <div class="section__header">
+          <h2>Insights that keep you ahead.</h2>
+          <p>Weekly pulse on cultural moments, platform shifts, and creative wins.</p>
+        </div>
+        <div class="insight__grid">
+          <article class="insight reveal tilt">
+            <div class="insight__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 15l4-4 4 3 4-6" fill="none" stroke="currentColor" stroke-width="2" />
+              </svg>
+            </div>
+            <h3>Creator-backed launches outperform by 38%</h3>
+            <p>Design briefs that let creators co-author the narrative.</p>
+          </article>
+          <article class="insight reveal delay-1 tilt">
+            <div class="insight__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 8h14M5 12h10M5 16h6" fill="none" stroke="currentColor" stroke-width="2" />
+              </svg>
+            </div>
+            <h3>Short-form series > single viral posts</h3>
+            <p>We choreograph 6-part sequences that sustain momentum.</p>
+          </article>
+          <article class="insight reveal delay-2 tilt">
+            <div class="insight__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="7" fill="none" stroke="currentColor" stroke-width="2" />
+                <path d="M12 8v4l3 3" fill="none" stroke="currentColor" stroke-width="2" />
+              </svg>
+            </div>
+            <h3>Community replies drive algorithm lift</h3>
+            <p>Warm comment threads lead to sticky engagement.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact" class="section cta">
+        <div class="cta__content reveal">
+          <h2>Ready for a campaign sprint?</h2>
+          <p>
+            Tell us about your goals and we will craft a custom rollout within 48 hours.
+          </p>
+          <form class="cta__form" action="/api/lead" method="post">
+            <input type="text" name="name" placeholder="Your name" required />
+            <input type="email" name="email" placeholder="Work email" required />
+            <input
+              type="text"
+              name="website"
+              tabindex="-1"
+              autocomplete="off"
+              class="hp-field"
+              aria-hidden="true"
+            />
+            <div
+              class="cf-turnstile"
+              data-sitekey="your_turnstile_site_key"
+              data-theme="dark"
+            ></div>
+            <button type="submit" class="btn btn--primary">Request a Proposal</button>
+          </form>
+          <p class="form-status" aria-live="polite"></p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div>
+        <h3>Flair Flow Media</h3>
+        <p>Social + Creator + Performance</p>
+      </div>
+      <div class="footer__meta">
+        <p>hello@flairflow.media</p>
+        <p>Los Angeles · New York · Remote</p>
+      </div>
+    </footer>
+
+    <script type="module" src="./script.js"></script>
+    <script
+      src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+      async
+      defer
+    ></script>
+    <script
+      src="https://browser.sentry-cdn.com/8.27.0/bundle.tracing.min.js"
+      integrity="sha384-3G2S4tmyI8v1nBv3oD3yqQH3Qf+4aVQjQ6bVxQIgWue9G6B0f8gI+1eC3i5a2xLr"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      if (window.Sentry) {
+        window.Sentry.init({
+          dsn: "YOUR_SENTRY_DSN",
+          tracesSampleRate: 0.1,
+        });
+      }
+    </script>
+  </body>
+</html>
