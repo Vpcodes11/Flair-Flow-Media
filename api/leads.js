@@ -17,6 +17,7 @@ export default async function handler(req, res) {
     const rows = await getSubmissions();
     res.json({ ok: true, rows });
   } catch (err) {
+    console.error(err);
     res.status(500).json({ ok: false, error: "Internal server error." });
   }
 }

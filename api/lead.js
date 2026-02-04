@@ -20,16 +20,16 @@ export default async function handler(req, res) {
     return;
   }
 
-  const turnstile = await verifyTurnstile(
-    req.body["cf-turnstile-response"],
-    req.headers["x-forwarded-for"]
-  );
-  if (!turnstile.ok) {
-    res.status(400).json({ ok: false, error: "Captcha failed." });
-    return;
-  }
-
   try {
+    const turnstile = await verifyTurnstile(
+      req.body["cf-turnstile-response"],
+      req.headers["x-forwarded-for"]
+    );
+    if (!turnstile.ok) {
+      res.status(400).json({ ok: false, error: "Captcha failed." });
+      return;
+    }
+
     await insertSubmission(validated.name, validated.email);
     const mailResult = await sendEmail({
       subject: "New Flair Flow Media lead",
@@ -44,6 +44,7 @@ export default async function handler(req, res) {
     }
     res.json({ ok: true });
   } catch (err) {
+    console.error(err);
     res.status(500).json({ ok: false, error: "Internal server error." });
   }
 }
