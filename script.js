@@ -20,6 +20,40 @@ const statCounters = document.querySelectorAll("[data-count]");
 const parallaxItems = document.querySelectorAll("[data-parallax]");
 const scrollSyncItems = document.querySelectorAll("[data-scroll]");
 
+let cachedParallax = [];
+let cachedScrollSync = [];
+let viewportHeight = window.innerHeight;
+
+const cachePositions = () => {
+  // Reset transforms to get natural positions
+  parallaxItems.forEach((el) => (el.style.transform = ""));
+  scrollSyncItems.forEach((el) => (el.style.transform = ""));
+
+  viewportHeight = window.innerHeight || 1;
+  const scrollY = window.scrollY;
+
+  cachedParallax = Array.from(parallaxItems).map((el) => {
+    const rect = el.getBoundingClientRect();
+    const strength = parseFloat(el.dataset.parallax || "0.2");
+    return {
+      el,
+      top: rect.top + scrollY,
+      height: rect.height,
+      maxShift: 90 * strength,
+    };
+  });
+
+  cachedScrollSync = Array.from(scrollSyncItems).map((el) => {
+    const rect = el.getBoundingClientRect();
+    return {
+      el,
+      top: rect.top + scrollY,
+      height: rect.height,
+      mode: el.dataset.scroll || "fade-up",
+    };
+  });
+};
+
 const toNumber = (value) => {
   if (String(value).includes(".")) return Number(value);
   return parseInt(value, 10);
@@ -59,23 +93,33 @@ const observer = new IntersectionObserver(
 revealElements.forEach((el) => observer.observe(el));
 statCounters.forEach((el) => observer.observe(el));
 
-const applyScrollSync = () => {
-  scrollSyncItems.forEach((el) => {
-    const rect = el.getBoundingClientRect();
-    const viewport = window.innerHeight || 1;
+const applyParallax = (scrollY) => {
+  cachedParallax.forEach((data) => {
+    const rectTop = data.top - scrollY;
     const progress = Math.min(
-      Math.max((viewport - rect.top) / (viewport + rect.height), 0),
+      Math.max((viewportHeight - rectTop) / (viewportHeight + data.height), 0),
+      1
+    );
+    const offset = (progress - 0.5) * 2 * data.maxShift;
+    data.el.style.transform = `translate3d(0, ${offset}px, 0)`;
+  });
+};
+
+const applyScrollSync = (scrollY) => {
+  cachedScrollSync.forEach((data) => {
+    const rectTop = data.top - scrollY;
+    const progress = Math.min(
+      Math.max((viewportHeight - rectTop) / (viewportHeight + data.height), 0),
       1
     );
     const drift = (0.5 - progress) * 30;
-    const mode = el.dataset.scroll || "fade-up";
-    if (mode === "drift") {
-      el.style.transform = `translate3d(0, ${drift}px, 0)`;
-    } else if (mode === "tilt") {
+    if (data.mode === "drift") {
+      data.el.style.transform = `translate3d(0, ${drift}px, 0)`;
+    } else if (data.mode === "tilt") {
       const rotate = (progress - 0.5) * 4;
-      el.style.transform = `translate3d(0, ${drift}px, 0) rotateX(${rotate}deg)`;
+      data.el.style.transform = `translate3d(0, ${drift}px, 0) rotateX(${rotate}deg)`;
     } else {
-      el.style.transform = `translate3d(0, ${drift}px, 0)`;
+      data.el.style.transform = `translate3d(0, ${drift}px, 0)`;
     }
   });
 };
@@ -85,26 +129,26 @@ const onScroll = () => {
   if (ticking) return;
   ticking = true;
   requestAnimationFrame(() => {
-    parallaxItems.forEach((el) => {
-      const rect = el.getBoundingClientRect();
-      const viewport = window.innerHeight || 1;
-      const progress = Math.min(
-        Math.max((viewport - rect.top) / (viewport + rect.height), 0),
-        1
-      );
-      const strength = parseFloat(el.dataset.parallax || "0.2");
-      const maxShift = 90 * strength;
-      const offset = (progress - 0.5) * 2 * maxShift;
-      el.style.transform = `translate3d(0, ${offset}px, 0)`;
-    });
-    applyScrollSync();
+    const scrollY = window.scrollY;
+    applyParallax(scrollY);
+    applyScrollSync(scrollY);
     ticking = false;
   });
 };
 
+const handleResize = () => {
+  cachePositions();
+  const scrollY = window.scrollY;
+  applyParallax(scrollY);
+  applyScrollSync(scrollY);
+};
+
 window.addEventListener("scroll", onScroll, { passive: true });
-window.addEventListener("resize", applyScrollSync);
-applyScrollSync();
+window.addEventListener("resize", handleResize);
+cachePositions();
+const initialScrollY = window.scrollY;
+applyParallax(initialScrollY);
+applyScrollSync(initialScrollY);
 
 const form = document.querySelector(".cta__form");
 if (form) {
@@ -159,6 +203,11 @@ window.addEventListener("load", () => {
     loader.classList.add("is-hidden");
     setTimeout(() => {
       loader.remove();
+      // Re-cache positions once fully loaded and loader removed
+      cachePositions();
+      const scrollY = window.scrollY;
+      applyParallax(scrollY);
+      applyScrollSync(scrollY);
     }, 700);
   };
 
